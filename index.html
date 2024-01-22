@@ -13,7 +13,7 @@
             justify-content: center;
             padding: 6% 35%;;
         }
-        .container {
+        .container {            
             margin: 0% 10% 0% 10%;
             height: 500px;
             width: 340px;
@@ -93,7 +93,7 @@
         function calculateResult() {
             try {
                 let expression = result.innerText.replace('π', '3.14');
-                result.innerText = "=  " + eval(result.innerText);
+                result.innerText = eval(result.innerText);
             } catch (error) {
                 result.innerText = 'Error';
             }
