@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        body{
+            background-color: #ffd6a0;
+            align-items: center;
+            justify-content: center;
+            padding: 6% 35%;;
+        }
+        .container {
+            margin: 0% 10% 0% 10%;
+            height: 500px;
+            width: 340px;
+            background-color: #b0abab;
+            display: grid;
+            grid-template-areas:'r r r r' 'r r r r' 'pi e div cl' 'sev eig nine mul' 'fo fi six min' ' one two thr plu' 'ze zeze zeze eq';
+        }
+
+        #result {
+            font: 23px bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            grid-area: r;
+            background-color: #000000;
+            color: aquamarine;
+            text-align: right;
+            
+        }
+        #ele2{
+            grid-area: pi;
+        }
+        
+        #ele19{
+            grid-area: zeze;
+        }
+        #ele13{
+            grid-area: min;
+        }
+        
+        .ele{
+            padding-top: 15px;
+            margin: 5px;
+            text-align: center;
+            justify-content: center;
+            background-color: #f9fbff;
+            
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="ele" id="result"></div>
+        <button class="ele" id="ele2" onclick="appendToResult('(π)')">π</button>
+        <button class="ele" id="ele3" onclick="appendToResult('Math.E')">e</button>
+        <button class="ele" id="ele4" onclick="appendToResult('/')">/</button>
+        <button class="ele" id="ele5" onclick="clearResult()">C</button>
+        <button class="ele" id="ele6" onclick="appendToResult('7')">7</button>
+        <button class="ele" id="ele7" onclick="appendToResult('8')">8</button>
+        <button class="ele" id="ele8" onclick="appendToResult('9')">9</button>
+        <button class="ele" id="ele9" onclick="appendToResult('*')">X</button>
+        <button class="ele" id="ele10" onclick="appendToResult('4')">4</button>
+        <button class="ele" id="ele11" onclick="appendToResult('5')">5</button>
+        <button class="ele" id="ele12" onclick="appendToResult('6')">6</button>
+        <button class="ele" id="ele13" onclick="appendToResult('-')">-</button>
+        <button class="ele" id="ele14" onclick="appendToResult('1')">1</button>
+        <button class="ele" id="ele15" onclick="appendToResult('2')">2</button>
+        <button class="ele" id="ele16" onclick="appendToResult('3')">3</button>
+        <button class="ele" id="ele17" onclick="appendToResult('+')">+</button>
+        <button class="ele" id="ele18" onclick="appendToResult('0')">0</button>
+        <button class="ele" id="ele19" onclick="appendToResult('00')">00</button>
+        <button class="ele" id="ele20" onclick="calculateResult()">=</button>
+    </div>
+
+    <script>
+        let result = document.getElementById('result');
+
+        function appendToResult(value) {
+            result.innerText += value;
+        }
+
+        function clearResult() {
+            result.innerText = '';
+        }
+
+        function calculateResult() {
+            try {
+                let expression = result.innerText.replace('π', '3.14');
+                result.innerText = "=  " + eval(result.innerText);
+            } catch (error) {
+                result.innerText = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
